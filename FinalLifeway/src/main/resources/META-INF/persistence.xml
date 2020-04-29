@@ -8,11 +8,17 @@
 		<jta-data-source>java:/webFINAL</jta-data-source>
 		<class>pe.edu.upc.entity.Distrito</class>
 		<class>pe.edu.upc.entity.Cliente</class>
-		<class>pe.edu.upc.entity.Accesorio</class>
-		<class>pe.edu.upc.entity.Estatus</class>
-		<class>pe.edu.upc.entity.Rol</class>
-		<class>pe.edu.upc.entity.Sucursal</class>
-		<class>pe.edu.upc.entity.Estado</class>
+		<class>pe.edu.upc.entity.Accessory</class>
+		<class>pe.edu.upc.entity.Condition</class>
+		<class>pe.edu.upc.entity.Status</class>
+		<class>pe.edu.upc.entity.Role</class>
+		<class>pe.edu.upc.entity.Bike</class>
+		<class>pe.edu.upc.entity.Citystall</class>
+		<class>pe.edu.upc.entity.Employee</class>
+		<class>pe.edu.upc.entity.Rental</class>
+		<class>pe.edu.upc.entity.Product</class>
+		<class>pe.edu.upc.entity.Detail_rental</class>
+		<class>pe.edu.upc.entity.Rental_Status</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
