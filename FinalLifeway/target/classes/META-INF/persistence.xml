@@ -9,8 +9,6 @@
 		<class>pe.edu.upc.entity.Distrito</class>
 		<class>pe.edu.upc.entity.Cliente</class>
 		<class>pe.edu.upc.entity.Accesorio</class>
-		<class>pe.edu.upc.entity.Rueda</class>
-		<class>pe.edu.upc.entity.Tipo_Pedal</class>
 		<class>pe.edu.upc.entity.Estatus</class>
 		<class>pe.edu.upc.entity.Rol</class>
 		<class>pe.edu.upc.entity.Sucursal</class>
