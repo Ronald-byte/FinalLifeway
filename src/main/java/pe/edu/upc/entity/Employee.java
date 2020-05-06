@@ -29,11 +29,7 @@ public class Employee implements Serializable{
 	private int Phone_Employee;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCitystall", nullable = false)
-	private Citystall citystall;
-	
-	@ManyToOne
-	@JoinColumn(name = "idRole", nullable = false)
+	@JoinColumn(name = "Role", nullable = false)
 	private Role role;
 
 	public Employee() {
@@ -41,13 +37,11 @@ public class Employee implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int idEmployee, String nEmployee, int phone_Employee, Citystall citystall, Role role) {
+	public Employee(int idEmployee, String nEmployee, int phone_Employee) {
 		super();
 		this.idEmployee = idEmployee;
 		this.NEmployee = nEmployee;
 		this.Phone_Employee = phone_Employee;
-		this.citystall = citystall;
-		this.role = role;
 	}
 
 	public int getIdEmployee() {
@@ -74,19 +68,4 @@ public class Employee implements Serializable{
 		Phone_Employee = phone_Employee;
 	}
 
-	public Citystall getCitystall() {
-		return citystall;
-	}
-
-	public void setCitystall(Citystall citystall) {
-		this.citystall = citystall;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
 }

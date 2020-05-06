@@ -6,12 +6,14 @@
 	<persistence-unit name="FinalLifeway"
 		transaction-type="JTA">
 		<jta-data-source>java:/webFINAL</jta-data-source>
-		<class>pe.edu.upc.entity.Distrito</class>
 		<class>pe.edu.upc.entity.Cliente</class>
+		<class>pe.edu.upc.entity.Brand</class>		
+		<class>pe.edu.upc.entity.Status</class>		
 		<class>pe.edu.upc.entity.Bike</class>
 		<class>pe.edu.upc.entity.Employee</class>
 		<class>pe.edu.upc.entity.Rental</class>
 		<class>pe.edu.upc.entity.Rol</class>
+		<class>pe.edu.upc.entity.Role</class>
 		<class>pe.edu.upc.entity.User</class>
 		<class>pe.edu.upc.entity.UserRol</class>
 		<properties>

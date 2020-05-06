@@ -22,9 +22,16 @@ public class Rental implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRental;
 	
-	private Date date_start;
+	private Date date_rental;
 	
-	private Date date_end;
+	private int Nrohoras;
+	
+	private int Mtotal;
+	
+	@ManyToOne
+	@JoinColumn(name = "idBike", nullable = false)
+	private Bike bike;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "idCliente", nullable = false)
@@ -39,11 +46,14 @@ public class Rental implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Rental(int idRental, Date date_start, Date date_end, Cliente cliente, Employee employee) {
+	public Rental(int idRental, Date date_rental, int nrohoras, int mtotal, Bike bike, Cliente cliente,
+			Employee employee) {
 		super();
 		this.idRental = idRental;
-		this.date_start = date_start;
-		this.date_end = date_end;
+		this.date_rental = date_rental;
+		Nrohoras = nrohoras;
+		Mtotal = mtotal;
+		this.bike = bike;
 		this.cliente = cliente;
 		this.employee = employee;
 	}
@@ -56,20 +66,36 @@ public class Rental implements Serializable{
 		this.idRental = idRental;
 	}
 
-	public Date getDate_start() {
-		return date_start;
+	public Date getDate_rental() {
+		return date_rental;
 	}
 
-	public void setDate_start(Date date_start) {
-		this.date_start = date_start;
+	public void setDate_rental(Date date_rental) {
+		this.date_rental = date_rental;
 	}
 
-	public Date getDate_end() {
-		return date_end;
+	public int getNrohoras() {
+		return Nrohoras;
 	}
 
-	public void setDate_end(Date date_end) {
-		this.date_end = date_end;
+	public void setNrohoras(int nrohoras) {
+		Nrohoras = nrohoras;
+	}
+
+	public int getMtotal() {
+		return Mtotal;
+	}
+
+	public void setMtotal(int mtotal) {
+		Mtotal = mtotal;
+	}
+
+	public Bike getBike() {
+		return bike;
+	}
+
+	public void setBike(Bike bike) {
+		this.bike = bike;
 	}
 
 	public Cliente getCliente() {
@@ -87,4 +113,5 @@ public class Rental implements Serializable{
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
+
 }
