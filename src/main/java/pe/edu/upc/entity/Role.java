@@ -81,6 +81,38 @@ public class Role implements Serializable{
 
         NRole = nRole;
 
-    }  
+    }
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((NRole == null) ? 0 : NRole.hashCode());
+		result = prime * result + idRole;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Role other = (Role) obj;
+		if (NRole == null) {
+			if (other.NRole != null)
+				return false;
+		} else if (!NRole.equals(other.NRole))
+			return false;
+		if (idRole != other.idRole)
+			return false;
+		return true;
+	}  
+    
+    
     }  
 

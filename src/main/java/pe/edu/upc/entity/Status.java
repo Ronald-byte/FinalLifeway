@@ -76,6 +76,36 @@ private static final long serialVersionUID = 1L;
     }
 
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((NStatus == null) ? 0 : NStatus.hashCode());
+		result = prime * result + idStatus;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Status other = (Status) obj;
+		if (NStatus == null) {
+			if (other.NStatus != null)
+				return false;
+		} else if (!NStatus.equals(other.NStatus))
+			return false;
+		if (idStatus != other.idStatus)
+			return false;
+		return true;
+	}
+
+
 }
 
 
