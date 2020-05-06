@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de bicicleta:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Bicicleta</span>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+
+
+			<h:outputLabel for="idBike" value="Código" styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idBike" styleClass="form-control"
+				value="#{bikeController.b.idBike}" required="true" />
+
+			<h:outputLabel for="brand" value="Marca" styleClass="control-label" />
+			<p:inputText autocomplete="off" id="brand" styleClass="form-control"
+				value="#{bikeController.b.brand}" maxlength="30" required="true" />
+
+			<h:outputLabel for="MPrecio_bike" value=" Precio"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="MPrecio_bike"
+				styleClass="form-control" value="#{bikeController.b.MPrecio_bike}"
+				maxlength="30" required="true" />
+
+			<h:outputLabel for="dateBike" value="Fecha"
+				styleClass="control-label" />
+			<p:calendar id="dateBike" pattern="dd/MM/yyyy"
+				value="#{bikeController.b.dateBike}" showOn="button" timeZone="UTC"
+				required="true">
+			</p:calendar>
+
+
+			<p:outputLabel for="status" value="Status" />
+			<p:selectOneMenu id="status"
+				value="#{bikeController.b.status}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{bikeController.listaStatus}"
+					var="s" itemLabel="#{s.idStatus}" itemValue="#{s}" />
+			</p:selectOneMenu>
+			<br />
+
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{bikeController.insert()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listBike?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listBike?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

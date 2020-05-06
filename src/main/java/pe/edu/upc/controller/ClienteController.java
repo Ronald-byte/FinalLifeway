@@ -72,7 +72,7 @@ public class ClienteController implements Serializable {
 
 	public String Modifpre(Cliente c) {
 		this.setC(c);
-		return "ClienteMod.xhtml";
+		return "Cliente.xhtml";
 	}
 
 	public void modificar() {

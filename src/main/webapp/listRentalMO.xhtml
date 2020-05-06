@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Alquileres:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Alquileres</span>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+
+			<h:outputLabel for="idRental" value="Código"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idRental"
+				styleClass="form-control" value="#{rentalController.r.idRental}"
+				maxlength="30" required="true" />
+
+			<p:outputLabel for="bike" value="Bicicleta" />
+			<p:selectOneMenu id="bike"
+				value="#{rentalController.r.bike}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{rentalController.listaBike}"
+					var="r" itemLabel="#{r.idBike}" itemValue="#{r}" />
+			</p:selectOneMenu>
+
+			<p:outputLabel for="cliente" value="Cliente" />
+			<p:selectOneMenu id="cliente"
+				value="#{rentalController.r.cliente}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{rentalController.listaCliente}"
+					var="r" itemLabel="#{r.idCliente}" itemValue="#{r}" />
+			</p:selectOneMenu>
+
+			<h:outputLabel for="date_rental" value="Fecha Renta"
+				styleClass="control-label" />
+			<p:calendar id="date_rental" pattern="dd/MM/yyyy"
+				value="#{rentalController.r.date_rental}" showOn="button" timeZone="UTC"
+				required="true">
+			</p:calendar>
+
+			<h:outputLabel for="mtotal" value="Monto Total"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="mtotal"
+				styleClass="form-control" value="#{rentalController.r.mtotal}"
+				maxlength="30" required="true" />
+			<h:outputLabel for="nrohoras" value="Horas"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nrohoras"
+				styleClass="form-control" value="#{rentalController.r.nrohoras}"
+				maxlength="30" required="true" />
+			<p:outputLabel for="employee" value="Trabajador" />
+			<p:selectOneMenu id="employee"
+				value="#{rentalController.r.employee}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{rentalController.listaEmployee}"
+					var="r" itemLabel="#{r.idEmployee}" itemValue="#{r}" />
+			</p:selectOneMenu>
+			<br />
+			<p:commandButton value="Grabar"
+				actionListener="#{rentalController.Modifpre(r)}"
+				styleClass="btn btn-primary " update="@form"
+				action="listRental?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listRental?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

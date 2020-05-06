@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Trabajadores:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Trabajadores</span>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<h:form>
+
+
+			<h:outputLabel for="idEmployee" value="Código"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idEmployee"
+				styleClass="form-control" value="#{employeeController.e.idEmployee}"
+				required="true" />
+
+			<h:outputLabel for="NEmployee" value="Nombre del trabajador"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="NEmployee"
+				styleClass="form-control" value="#{employeeController.e.NEmployee}"
+				maxlength="30" required="true" />
+
+			<h:outputLabel for="Phone_Employee" value="Telefono"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="Phone_Employee"
+				styleClass="form-control" value="#{employeeController.e.phone_Employee}"
+				maxlength="30" required="true" />
+
+			<p:outputLabel for="cboRol" value="Role" />
+			<p:selectOneMenu id="cboRol"
+				value="#{employeeController.e.role}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{employeeController.listaRole}"
+					var="m" itemLabel="#{m.NRole}" itemValue="#{m}" />
+			</p:selectOneMenu>
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{employeeController.insert()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listEmployee?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listEmployee?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

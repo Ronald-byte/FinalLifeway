@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="master.xhtml">
+	<ui:define name="title">
+        .:Listado de Alquileres:.
+    </ui:define>
+	<ui:define name="titleCont">
+		<span>Alquileres</span>
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<div class="row" align="center">
+			<p:commandButton value="Nuevo"
+					action="#{rentalController.newRental()}"
+					styleClass="btn btn-primary" ajax="false" /></div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstRent" var="r"
+							value="#{rentalController.listaRental}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+
+							<p:column headerText="Id" sortBy="#{r.bike}">
+								<h:outputText value="#{b.idBike}" />
+							</p:column>
+							<!-- Sintaxis incluir comentario xhtml -->
+							<p:column headerText="Marca" sortBy="#{r.cliente}">
+								<h:outputText value="#{r.cliente}" />
+							</p:column>
+							<p:column headerText="Fecha" sortBy="#{r.date_rental}">
+								<h:outputText value="#{r.date_rental}" />
+							</p:column>
+							<p:column headerText="Precio" sortBy="#{r.employee}">
+								<h:outputText value="#{r.employee}" />
+							</p:column>
+							<p:column headerText="Status" sortBy="#{r.idRental}">
+								<h:outputText value="#{r.idRental}" />							
+							</p:column>
+							<p:column headerText="Status" sortBy="#{r.mtotal}">
+								<h:outputText value="#{r.mtotal}" />							
+							</p:column>
+							<p:column headerText="Status" sortBy="#{r.nrohoras}">
+								<h:outputText value="#{r.nrohoras}" />							
+							</p:column>														
+							<p:column headerText="Operación">
+								<h:commandLink action="lstBike" value="Eliminar"
+									actionListener="#{rentalController.delete(r)}" style="color:red;" />
+							</p:column>
+							<p:column headerText="Operación">
+								<h:commandLink value="Modificar"
+									action="#{rentalController.Modifpre(r)}" style="color:blue;" />
+							</p:column>
+						</p:dataTable>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+	<ui:define name="footerCont">
+	</ui:define>
+</ui:composition>
+</html>
+

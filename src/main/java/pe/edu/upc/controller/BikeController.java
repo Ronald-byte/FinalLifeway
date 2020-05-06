@@ -106,7 +106,7 @@ public class BikeController implements Serializable {
 
 	public String Modifpre(Bike b) {
 		this.setB(b);
-		return "BikeMod.xhtml";
+		return "listBikeMO.xhtml";
 	}
 
 	public void modificar() {

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="master.xhtml">
+	<ui:define name="title">
+        .:Listado de Trabajadores:.
+    </ui:define>
+	<ui:define name="titleCont">
+		<span>Trabajadores </span>
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<div class="row" align="center">
+				<p:commandButton value="Limpiar" update="lstEmployee"
+					actionListener="#{employeeController.cleanEmployee()}"
+					styleClass="btn btn-default" ajax="false" />
+				<p:commandButton value="Nuevo"
+					action="#{employeeController.newEmployee()}"
+					styleClass="btn btn-primary" ajax="false" />
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstEmployee" var="inf"
+							value="#{employeeController.listaEmployee}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{inf.idEmployee}">
+								<h:outputText value="#{inf.idEmployee}" />
+							</p:column>
+							<!-- Sintaxis incluir comentario xhtml -->
+							<p:column headerText="Trabajador" sortBy="#{inf.NEmployee}">
+								<h:outputText value="#{inf.NEmployee}" />
+							</p:column>
+
+							<p:column headerText="Telefono" sortBy="#{inf.phone_Employee}">
+								<h:outputText value="#{inf.phone_Employee}" />
+							</p:column>
+
+							<p:column headerText="Rol" sortBy="#{inf.role.NRole}">
+								<h:outputText value="#{inf.role.NRole}" />
+							</p:column>
+
+							<p:column headerText="Operación">
+								<h:commandLink action="lstEmployee" value="Eliminar"
+									actionListener="#{employeeController.delete(inf)}"
+									style="color:red;" />
+							</p:column>
+							<p:column headerText="Operación">
+								<h:commandLink value="Modificar"
+									action="#{employeeController.Modifpre(inf)}"
+									style="color:blue;" />
+							</p:column>
+						</p:dataTable>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+	<ui:define name="footerCont">
+	</ui:define>
+</ui:composition>
+</html>

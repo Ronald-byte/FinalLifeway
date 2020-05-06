@@ -37,35 +37,54 @@ public class Employee implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int idEmployee, String nEmployee, int phone_Employee) {
+
+	public Employee(int idEmployee, String nEmployee, int phone_Employee, Role role) {
 		super();
 		this.idEmployee = idEmployee;
-		this.NEmployee = nEmployee;
-		this.Phone_Employee = phone_Employee;
+		NEmployee = nEmployee;
+		Phone_Employee = phone_Employee;
+		this.role = role;
 	}
+
 
 	public int getIdEmployee() {
 		return idEmployee;
 	}
 
+
 	public void setIdEmployee(int idEmployee) {
 		this.idEmployee = idEmployee;
 	}
+
 
 	public String getNEmployee() {
 		return NEmployee;
 	}
 
+
 	public void setNEmployee(String nEmployee) {
 		NEmployee = nEmployee;
 	}
+
 
 	public int getPhone_Employee() {
 		return Phone_Employee;
 	}
 
+
 	public void setPhone_Employee(int phone_Employee) {
 		Phone_Employee = phone_Employee;
 	}
+
+
+	public Role getRole() {
+		return role;
+	}
+
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 
 }
