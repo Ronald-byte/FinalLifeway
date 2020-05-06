@@ -1,2 +1,0 @@
-# FinalLifeway
-Trabajo de PW
