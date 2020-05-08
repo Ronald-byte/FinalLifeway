@@ -15,9 +15,6 @@ public interface StatusDAO {
 
     public List<Status> listar();
 
-    public void delete(int idStatus);
-
-    public void modificar(Status s);
 
 }
 

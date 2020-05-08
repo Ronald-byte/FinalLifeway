@@ -25,8 +25,6 @@ public class EmployeeController implements Serializable {
 	@Inject
 	private IRole rService;
 
-	private String mensaje;
-
 	private Employee e;
 	private Role r;
 
@@ -117,14 +115,6 @@ public class EmployeeController implements Serializable {
 
 	public void setrService(IRole rService) {
 		this.rService = rService;
-	}
-
-	public String getMensaje() {
-		return mensaje;
-	}
-
-	public void setMensaje(String mensaje) {
-		this.mensaje = mensaje;
 	}
 
 	public Employee getE() {

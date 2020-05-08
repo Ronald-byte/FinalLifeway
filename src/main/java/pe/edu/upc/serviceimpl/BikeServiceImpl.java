@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.daointerface.BikeDAO;
@@ -15,8 +16,8 @@ import pe.edu.upc.serviceinterface.IBike;
 public class BikeServiceImpl implements Serializable, IBike {
 
 	private static final long serialVersionUID = 1L;
+	@Inject
 	private BikeDAO BD;
-
 	@Override
 	public void insert(Bike bik) {
 		try {

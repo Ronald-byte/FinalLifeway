@@ -26,6 +26,7 @@ public class BikeController implements Serializable {
 	private IBike bService;
 	@Inject
 	private IStatus sService;
+	@Inject
 	private IBrand braService;
 
 	private String mensaje;

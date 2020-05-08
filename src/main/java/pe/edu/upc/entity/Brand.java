@@ -30,7 +30,7 @@ public class Brand implements Serializable {
 	public Brand(int idBrand, String nBrand) {
 		super();
 		this.idBrand = idBrand;
-		NBrand = nBrand;
+		this.NBrand = nBrand;
 	}
 
 	public int getIdBrand() {

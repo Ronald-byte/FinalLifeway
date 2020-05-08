@@ -22,10 +22,10 @@ public class Employee implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEmployee;
 
-	@Column(name = "NEmployee", nullable = false, length = 50)
+	@Column(name = "NEmployee", nullable = false, length = 30)
 	private String NEmployee;
 
-	@Column(name = "Phone_Employee", nullable = false, length = 9)
+	@Column(name = "Phone_Employee", nullable = false, length = 30)
 	private int Phone_Employee;
 	
 	@ManyToOne

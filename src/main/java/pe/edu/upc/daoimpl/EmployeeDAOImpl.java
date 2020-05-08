@@ -35,9 +35,7 @@ public class EmployeeDAOImpl implements EmployeeDAO, Serializable {
 		try {
 			Query q = em.createQuery("select e from Employee e");
 			lista = (List<Employee>) q.getResultList();
-		} catch (
-
-		Exception e) {
+		} catch (Exception e) {
 			System.out.println("Error al listar los datos de Trabajador");
 		}
 		return lista;

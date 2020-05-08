@@ -24,10 +24,14 @@
 			<p:inputText autocomplete="off" id="idBike" styleClass="form-control"
 				value="#{bikeController.b.idBike}" required="true" />
 
-			<h:outputLabel for="brand" value="Marca" styleClass="control-label" />
-			<p:inputText autocomplete="off" id="brand" styleClass="form-control"
-				value="#{bikeController.b.brand}" maxlength="30" required="true" />
-
+			<p:outputLabel for="brand" value="Marca" />
+			<p:selectOneMenu id="brand"
+				value="#{bikeController.b.brand}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{bikeController.listaBrand}"
+					var="b" itemLabel="#{b.NBrand}" itemValue="#{b}" />
+			</p:selectOneMenu>
+<br />
 			<h:outputLabel for="MPrecio_bike" value=" Precio"
 				styleClass="control-label" />
 			<p:inputText autocomplete="off" id="MPrecio_bike"
