@@ -33,7 +33,7 @@ public class EmployeeDAOImpl implements EmployeeDAO, Serializable {
 	public List<Employee> listar() {
 		List<Employee> lista = new ArrayList<Employee>();
 		try {
-			Query q = em.createQuery("select i from Employee i");
+			Query q = em.createQuery("select e from Employee e");
 			lista = (List<Employee>) q.getResultList();
 		} catch (
 

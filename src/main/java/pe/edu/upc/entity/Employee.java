@@ -29,7 +29,7 @@ public class Employee implements Serializable{
 	private int Phone_Employee;
 	
 	@ManyToOne
-	@JoinColumn(name = "Role", nullable = false)
+	@JoinColumn(name = "idRole", nullable = false)
 	private Role role;
 
 	public Employee() {
@@ -41,8 +41,8 @@ public class Employee implements Serializable{
 	public Employee(int idEmployee, String nEmployee, int phone_Employee, Role role) {
 		super();
 		this.idEmployee = idEmployee;
-		NEmployee = nEmployee;
-		Phone_Employee = phone_Employee;
+		this.NEmployee = nEmployee;
+		this.Phone_Employee = phone_Employee;
 		this.role = role;
 	}
 
@@ -85,6 +85,5 @@ public class Employee implements Serializable{
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
 
 }

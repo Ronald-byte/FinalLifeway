@@ -39,8 +39,7 @@ public class EmployeeController implements Serializable {
 		this.e = new Employee();
 		this.listaRole = new ArrayList<Role>();
 		this.r = new Role();
-
-		this.list();
+		this.listEmployee();
 		this.listRole();
 	}
 
@@ -54,13 +53,13 @@ public class EmployeeController implements Serializable {
 		try {
 			eService.insert(e);
 			cleanEmployee();
-			this.list();
+			this.listEmployee();
 		} catch (Exception e1) {
 			e1.getMessage();
 		}
 	}
 
-	public void list() {
+	public void listEmployee() {
 		try {
 			listaEmployee = eService.listar();
 		} catch (Exception e) {
@@ -83,7 +82,7 @@ public class EmployeeController implements Serializable {
 	public void delete(Employee e) {
 		try {
 			eService.delete(e.getIdEmployee());
-			list();
+			listEmployee();
 		} catch (Exception e1) {
 			System.out.println(e1.getMessage());
 		}
@@ -98,7 +97,7 @@ public class EmployeeController implements Serializable {
 		try {
 			eService.modificar(this.e);
 			cleanEmployee();
-			this.list();
+			this.listEmployee();
 		} catch (Exception e) {
 			e.getMessage();
 		}
