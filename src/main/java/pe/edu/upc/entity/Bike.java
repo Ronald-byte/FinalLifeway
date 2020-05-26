@@ -22,6 +22,15 @@ public class Bike implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idBike;
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@Column(name = "MPrecio_bike", nullable = false, length = 50)
 	private int MPrecio_bike;
